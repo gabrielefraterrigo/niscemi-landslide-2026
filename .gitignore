@@ -1,0 +1,11 @@
+# Dati: mai su Git (pesanti, e i raw si ri-scaricano dalle fonti)
+data/
+
+# Ambiente Python
+.venv/
+__pycache__/
+*.pyc
+
+# File temporanei QGIS
+*.qgz~
+.~lock*

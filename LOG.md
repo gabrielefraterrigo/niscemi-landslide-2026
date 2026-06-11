@@ -1,0 +1,6 @@
+# Project log
+
+## 2026-06-11 — Phase 0 (2h)
+- Repo setup, venv, AOI script
+- Issues: ...
+- Open questions: ...
