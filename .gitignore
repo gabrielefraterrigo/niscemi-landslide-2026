@@ -9,3 +9,6 @@ __pycache__/
 # File temporanei QGIS
 *.qgz~
 .~lock*
+
+# Output di controllo rigenerabili
+maps/*_check.html
