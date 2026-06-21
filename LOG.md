@@ -15,3 +15,7 @@
 ## Percorsi GRANULE (per script Fase 3)
 - PRE (27/12/2025): data\raw\S2B_MSIL2A_20251227T095329_N0511_R079_T33SVB_20251227T122351.SAFE\GRANULE\L2A_T33SVB_A046008_20251227T095934\IMG_DATA\R10m
 - POST (25/02/2026): data\raw\S2B_MSIL2A_20260225T095029_N0512_R079_T33SVB_20260225T141422.SAFE\GRANULE\L2A_T33SVB_A046866_20260225T095231\IMG_DATA\R10m
+
+## 2026-06-21 - Phase 2 riproiezione CRS e calcolo DEM PRE
+- riproiezione CRS DEM da EPSG:32632 a 32633
+- slope calcolato (QGIS/gdaldem, gradi, Horn), min 0 / max 56°, letture puntuali 27° versante vs 0,5° piana, classi 5/15/25/35, e la nota sul DEM pre-evento

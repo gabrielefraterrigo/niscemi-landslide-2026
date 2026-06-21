@@ -12,7 +12,7 @@ Raw data are NOT tracked in Git (see .gitignore). This file records their origin
 **Selection Criterion:** see LOG.md. PRE = acquisition closest to
 16/01/2026 with cloudless hillside; 11/01 e 01/01 dismissed due to clouds/mist on the hillside. POST = first clear acquisition after the collapse of the 25/01. Range ~60 days → seasonal variety declared as limit.
 
-## DEM
+
 ## DEM
 | Product | Cell | Resolution | Native CRS | Source | Downloaded |
 |---------|------|-----------|-----------|--------|-----------|
