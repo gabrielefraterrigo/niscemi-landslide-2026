@@ -30,7 +30,7 @@ EPSG:32633 in Phase 2.
 | slope_deg.tif | dem_32633.tif | QGIS/gdaldem slope (Horn, degrees) — see scripts/02_slope.py | 32633 |
 | aoi.gpkg | (defined manually) | scripts/00_create_aoi.py | 32633 |
 | comune_niscemi (in aoi.gpkg) | data/raw/comuni/Com01012024_WGS84.shp | scripts/03_extract_niscemi.py (filter COMUNE='Niscemi' + reproject) | 32633 |
-
+| hillshade.tif | dem_32633.tif | QGIS/gdaldem hillshade (az=315, alt=45, z=1) — visualization only | 32633 |
 
 ## Administrative boundaries
 | Data | Level | Year | Source | CRS | Downloaded |
