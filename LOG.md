@@ -23,3 +23,6 @@
 
 ## 2026-06-22 
 - morfologia: slope (con zonali), hillshade, aspect (esposizione NW estratta), curvature    calcolate ma interpretazione rimandata a sviluppo futuro per rumorosità del dato a 10 m
+
+## 2026-06-22 Phase 3 Change detection
+- NDVI mascherati prodotti, % mascherata bassa, nota sul rumore stagionale che alza la media POST
