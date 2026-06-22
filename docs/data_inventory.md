@@ -29,9 +29,10 @@ EPSG:32633 in Phase 2.
 | dem_32633.tif | data/raw/w41095_s10/w41095_s10.tif | scripts/01_reproject_dem.py (bilinear, 10 m) | 32633 |
 | slope_deg.tif | dem_32633.tif | QGIS/gdaldem slope (Horn, degrees) — see scripts/02_slope.py | 32633 |
 | aoi.gpkg | (defined manually) | scripts/00_create_aoi.py | 32633 |
+| comune_niscemi (in aoi.gpkg) | data/raw/comuni/Com01012024_WGS84.shp | scripts/03_extract_niscemi.py (filter COMUNE='Niscemi' + reproject) | 32633 |
 
 
 ## Administrative boundaries
 | Data | Level | Year | Source | CRS | Downloaded |
 |------|-------|------|--------|-----|-----------|
-| ISTAT administrative boundaries (via ISPRA) | Municipalities | 2024 | ISTAT/ISPRA | (check .prj) | 2026-06-22 |
+| ISTAT administrative boundaries (via ISPRA) | Municipalities | 2024 | ISTAT/ISPRA | EPSG:32632 | 2026-06-22 |
