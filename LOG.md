@@ -19,3 +19,7 @@
 ## 2026-06-21 - Phase 2 riproiezione CRS e calcolo DEM PRE
 - riproiezione CRS DEM da EPSG:32632 a 32633
 - slope calcolato (QGIS/gdaldem, gradi, Horn), min 0 / max 56°, letture puntuali 27° versante vs 0,5° piana, classi 5/15/25/35, e la nota sul DEM pre-evento
+
+
+## 2026-06-22 
+- morfologia: slope (con zonali), hillshade, aspect (esposizione NW estratta), curvature    calcolate ma interpretazione rimandata a sviluppo futuro per rumorosità del dato a 10 m

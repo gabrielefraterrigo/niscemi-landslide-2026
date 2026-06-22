@@ -31,8 +31,19 @@ EPSG:32633 in Phase 2.
 | aoi.gpkg | (defined manually) | scripts/00_create_aoi.py | 32633 |
 | comune_niscemi (in aoi.gpkg) | data/raw/comuni/Com01012024_WGS84.shp | scripts/03_extract_niscemi.py (filter COMUNE='Niscemi' + reproject) | 32633 |
 | hillshade.tif | dem_32633.tif | QGIS/gdaldem hillshade (az=315, alt=45, z=1) — visualization only | 32633 |
+| aspect.tif | dem_32633.tif | QGIS/gdaldem aspect | 32633 |
+| curv_profile.tif | dem_32633.tif | GRASS r.slope.aspect (profile curvature) | 32633 |
+| curv_plan.tif | dem_32633.tif | GRASS r.slope.aspect (plan/tangential curvature) | 32633 |
+
 
 ## Administrative boundaries
 | Data | Level | Year | Source | CRS | Downloaded |
 |------|-------|------|--------|-----|-----------|
 | ISTAT administrative boundaries (via ISPRA) | Municipalities | 2024 | ISTAT/ISPRA | EPSG:32632 | 2026-06-22 |
+
+
+**Notes on morphological derivatives:**
+- `slope_deg` is the primary analytical variable (zonal stats computed for the municipality).
+- `hillshade` is used for cartographic visualization only.
+- `aspect` was used only to extract the failure slope's prevailing exposure (NW); no final map produced (too fragmented at this scale).
+- `curv_profile` / `curv_plan` were computed but not interpreted in detail; flagged as future work (curvature is noisy on a 10 m DEM and needs smoothing for robust analysis).
