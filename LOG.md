@@ -29,3 +29,53 @@
 
 ## 2026-06-26 
 - Confronto con perimetrazione ufficiale PC: il dNDVI cattura il corpo della frana su versante ma sottostima il settore urbano crollato (nord, SO) — conferma quantitativa del limite dell'ottico su superfici edificate. Risoluzione prevista: integrazione SAR (coerenza) in Fase 7
+
+## 2026-06-26 — Fase 3: change detection e poligono frana
+
+### Pipeline change detection
+- Estratte e ritagliate le 12 bande Sentinel-2 (6 ×pre, 6 ×post) sull'aoi_event con
+  05_extract_clip.py (glob per trovare le bande nei .SAFE, robusto ai path GRANULE).
+- NDVI mascherato nuvole via SCL (codici invalidi 0,1,3,8,9,10; SCL 20m→10m nearest
+  perché categorico). Mascherato pre 5,5% / post 1,9% → immagini pulite sul versante.
+  Media NDVI pre 0,37 / post 0,43 (post più alto per crescita stagionale = rumore).
+- dNDVI = post − pre. Media +0,06 (verde stagionale domina in superficie),
+  min −1,01. Conteggi: <−0,2 = 1,41%, <−0,3 = 0,37%, <−0,4 = 0,07%.
+  Visualizzato con palette divergente RdBu centrata su 0: frana = macchia rossa
+  compatta sul versante ovest abitato (fronte a −0,42); campi blu = rumore stagionale.
+- BSI + dBSI come conferma indipendente. dBSI e dNDVI risultano perimetri COINCIDENTI
+  → la frana co-localizza perdita di vegetazione e comparsa di suolo nudo. BSI usato
+  come conferma, non come recupero. Delimitazione basata su dNDVI.
+
+### Limite ottico sul settore urbano
+- Confronto con perimetrazione ufficiale Protezione Civile: il dNDVI cattura bene il
+  corpo della frana su versante ma sottostima il settore urbano (transizione
+  edificio→macerie = variazione spettrale modesta). Conferma quantitativa del limite
+  dell'ottico su superfici edificate.
+- Riesame ortofoto PC ad alta risoluzione (layer EME_FRANA_NISCEMI_2026): parte del
+  presunto "urbano non rilevato" era OMBRA fotografica, non crollo. La frana reale è
+  prevalentemente una striscia di suolo esposto su versante, ben rilevata dal dNDVI.
+  Limite urbano ridimensionato. Recupero pieno del settore urbano rinviato a Fase 7
+  (SAR/coerenza), con obiettivo documentato.
+
+### Delimitazione del poligono (iterazioni)
+- Soglia −0,3: frammentato, ~10 ha, schegge sparse.
+- −0,2 + closing morfologico (8-connectivity, iter 3): corpo connesso ma rumore agricolo
+  residuo (~21 ha, molti blob).
+- Aggiunto vincolo di pendenza (slope_aoi ≥ 10°): rumore agricolo −82%, MA scarta la
+  scarpata di distacco. SCOPERTA: il vincolo basato sul DEM PRE-evento penalizza la
+  scarpata, che diventa ripida solo DOPO la frana (il DEM pre non la "vede" ripida).
+  → vincolo di pendenza abbandonato per questa frana.
+- Versione finale: −0,2 + closing senza vincolo slope → costone catturato bene +
+  pochi falsi positivi agricoli, rimossi MANUALMENTE in QGIS (verificati su ortofoto PC).
+- Risultato: 2 corpi coerenti con la frana (~13,3 + ~11,5 ha ≈ 24,8 ha),
+  salvato in landslide_ndvi_final.gpkg.
+
+### Validazione
+- Qualitativa POSITIVA: il costone dNDVI coincide con la frana ufficiale PC (forma a
+  fagiolo su versante ovest abitato). Dato vettoriale ufficiale non scaricabile dal sito
+  → validazione quantitativa rinviata a Fase 4 (PAI/IFFI).
+
+### Note metodologiche
+- La delimitazione automatica di frane in contesto misto (agricolo+urbano) non è mai
+  perfetta: rumore e frana hanno dNDVI sovrapposti. Workflow ibrido auto+manuale = prassi.
+- Il vincolo morfologico va usato con cautela quando il DEM è pre-evento.

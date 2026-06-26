@@ -34,6 +34,13 @@ EPSG:32633 in Phase 2.
 | aspect.tif | dem_32633.tif | QGIS/gdaldem aspect | 32633 |
 | curv_profile.tif | dem_32633.tif | GRASS r.slope.aspect (profile curvature) | 32633 |
 | curv_plan.tif | dem_32633.tif | GRASS r.slope.aspect (plan/tangential curvature) | 32633 |
+| ndvi pre/post (in cd/) | cd/{pre,post}_B04.tif, _B08.tif, _SCL.tif | scripts/06_ndvi_masked.py (SCL cloud mask, NDVI) | 32633 |
+| bsi pre/post (in cd/) | cd/{pre,post}_B02,B04,B08,B11.tif, _SCL.tif | scripts/08_bsi_masked.py (SCL cloud mask, BSI) | 32633 |
+| dndvi.tif (in cd/) | cd/post_ndvi.tif − cd/pre_ndvi.tif | scripts/07_dndvi.py | 32633 |
+| dbsi.tif (in cd/) | cd/post_bsi.tif − cd/pre_bsi.tif | scripts/08_bsi_masked.py | 32633 |
+| cd/ Sentinel-2 bands (clipped) | data/raw/*.SAFE (B02,B04,B08,B11,B12,SCL ×pre/post) | scripts/05_extract_clip.py (clip to aoi_event) | 32633 |
+| slope_aoi.tif (in cd/) | slope_deg.tif | scripts/10_clip_slope_aoi.py (clip to aoi_event) | 32633 |
+| landslide_ndvi_final (in landslide_ndvi_final.gpkg) | dndvi.tif | scripts/09_landslide_polygon.py (threshold −0.2 + closing + size filter) then manual cleanup of agricultural false positives in QGIS | 32633 |
 
 
 ## Administrative boundaries
