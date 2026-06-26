@@ -19,8 +19,8 @@ from pathlib import Path
 CD = Path("data/processed/cd")
 GPKG = Path("data/processed/aoi.gpkg")
 
-THRESHOLD = -0.3          # dNDVI below this = candidate landslide
-MIN_PIXELS = 50           # remove blobs smaller than this (50 px = 0.5 ha)
+THRESHOLD = -0.2          # era -0.3
+MIN_PIXELS = 150          # era 50
 
 def main():
     with rasterio.open(CD / "dndvi.tif") as src:
@@ -36,8 +36,15 @@ def main():
     mask = ndimage.binary_fill_holes(mask)
     print(f"After fill holes: {mask.sum()} pixels")
 
+    # 2b. Morphological closing: connect nearby landslide pixels into
+    #     a coherent body (dilate then erode). Bridges small gaps from
+    #     residual vegetation / already-bare patches inside the slide.
+    structure = ndimage.generate_binary_structure(2, 2)  # 8-connectivity
+    mask = ndimage.binary_closing(mask, structure=structure, iterations=3)
+    print(f"After closing: {mask.sum()} pixels")
+
     # 3. Remove small fragments: label connected blobs, keep big ones
-    labels, n = ndimage.label(mask)
+    labels, n = ndimage.label(mask, structure=structure)
     sizes = ndimage.sum(mask, labels, range(1, n + 1))
     keep = np.isin(labels, np.where(sizes >= MIN_PIXELS)[0] + 1)
     mask_clean = keep

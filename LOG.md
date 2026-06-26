@@ -26,3 +26,6 @@
 
 ## 2026-06-22 Phase 3 Change detection
 - NDVI mascherati prodotti, % mascherata bassa, nota sul rumore stagionale che alza la media POST
+
+## 2026-06-26 
+- Confronto con perimetrazione ufficiale PC: il dNDVI cattura il corpo della frana su versante ma sottostima il settore urbano crollato (nord, SO) — conferma quantitativa del limite dell'ottico su superfici edificate. Risoluzione prevista: integrazione SAR (coerenza) in Fase 7
