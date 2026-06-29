@@ -41,6 +41,7 @@ EPSG:32633 in Phase 2.
 | cd/ Sentinel-2 bands (clipped) | data/raw/*.SAFE (B02,B04,B08,B11,B12,SCL ×pre/post) | scripts/05_extract_clip.py (clip to aoi_event) | 32633 |
 | slope_aoi.tif (in cd/) | slope_deg.tif | scripts/10_clip_slope_aoi.py (clip to aoi_event) | 32633 |
 | landslide_ndvi_final (in landslide_ndvi_final.gpkg) | dndvi.tif | scripts/09_landslide_polygon.py (threshold −0.2 + closing + size filter) then manual cleanup of agricultural false positives in QGIS | 32633 |
+| zonal_landslide.txt | slope_deg.tif + landslide_ndvi_final.gpkg | scripts/11_zonal_landslide.py (zonal slope stats on landslide polygon) | — |
 
 
 ## Administrative boundaries

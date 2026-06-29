@@ -79,3 +79,23 @@
 - La delimitazione automatica di frane in contesto misto (agricolo+urbano) non è mai
   perfetta: rumore e frana hanno dNDVI sovrapposti. Workflow ibrido auto+manuale = prassi.
 - Il vincolo morfologico va usato con cautela quando il DEM è pre-evento.
+
+## 2026-06-29 — Q2 completata: statistiche zonali pendenza area frana
+
+- Nuovo script 11_zonal_landslide.py (gemello del 04, applica le zonali al
+  poligono frana; passa TUTTE le geometrie alla mask perché la frana ha 2 corpi).
+- Risultato: frana media 11,9° / mediana 11,1° vs comune 6,9° / 5,3°.
+  → pendenza media della frana ~72% più alta del comune.
+- Distribuzione: frana spostata su classi medio-ripide (5-25° = 81,6%;
+  15-35° = 29,5%), contro comune dove domina il piano (<5° = 47,7%).
+  Classe >35° = 0% nella frana.
+- Lettura: media≈mediana nella frana → versante omogeneamente inclinato
+  (non outlier). Comune media>mediana → coda di poche zone ripide.
+- Limiti: pendenze da DEM PRE-evento = suscettibilità antecedente, non
+  morfologia post-frana. Risoluzione 10m + DEM pre spiegano l'assenza di >35°
+  (la scarpata ripida è creata DALLA frana, non presente prima).
+- Q2 conclusa: il versante franato è significativamente più inclinato del
+  territorio comunale, confermando la predisposizione morfologica.
+
+  L'area di frana presenta una pendenza media di 11,9° (mediana 11,1°), contro una media comunale di 6,9° (mediana 5,3°). La distribuzione è spostata verso le classi medio-ripide: il 30% dell'area di frana ricade in classi (15-35°) che nel comune occupano meno del 10% del territorio. Media e mediana quasi coincidenti indicano un versante omogeneamente inclinato. Le pendenze, valutate sul DEM pre-evento, descrivono la suscettibilità morfologica antecedente al collasso; la risoluzione di 10 m e l'uso del DEM pre-evento spiegano l'assenza delle classi più ripide (>35°), generate dalla frana stessa
+  
