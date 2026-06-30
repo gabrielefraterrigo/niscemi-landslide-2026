@@ -99,3 +99,17 @@
 
   L'area di frana presenta una pendenza media di 11,9° (mediana 11,1°), contro una media comunale di 6,9° (mediana 5,3°). La distribuzione è spostata verso le classi medio-ripide: il 30% dell'area di frana ricade in classi (15-35°) che nel comune occupano meno del 10% del territorio. Media e mediana quasi coincidenti indicano un versante omogeneamente inclinato. Le pendenze, valutate sul DEM pre-evento, descrivono la suscettibilità morfologica antecedente al collasso; la risoluzione di 10 m e l'uso del DEM pre-evento spiegano l'assenza delle classi più ripide (>35°), generate dalla frana stessa
   
+
+## 2026-06-30 — Q3 (parte 1): overlay frana × PAI pericolosità
+
+- Script 12_overlay_pai.py: intersezione poligono frana × PAI PERICOLOSITA
+  (riproiettato 25833→32633, letto con bbox filter per efficienza).
+- Risultato: frana 24,82 ha → P4 (molto elevata) 12,49 ha (50,3%),
+  P2 (media) 5,67 ha (22,9%). Totale in zona PAI pericolosa: 73,2%.
+  Non perimetrato: 6,66 ha (26,8%).
+- Verifica visiva: intersezione coerente, contenuta nel poligono frana.
+  Solo classi P2 e P4 presenti (genuino, non artefatto). Il 26,8% non coperto
+  è prevalentemente marginale → la frana 2026 si è estesa oltre i limiti PAI
+  (con incertezza ai bordi del poligono ottico).
+- Nota: dati PAI shapefile aggiornati 12/05/2026, senza valore legale
+  (riferimento ufficiale = PDF). Da dichiarare nel report.
