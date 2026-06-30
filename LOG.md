@@ -130,3 +130,18 @@
   evento imprevisto.
 
   L'area collassata nel 2026 era, per circa il 73%, già nota e classificata ufficialmente come instabile: ricadeva in zone a pericolosità da frana PAI (50% in classe massima P4), coincideva con dissesti già inventariati, e — dato più rilevante — tutti questi dissesti pre-esistenti erano classificati come ATTIVI. Il corpo principale (~12 ha) corrisponde a un dissesto di tipo colamento/scorrimento già cartografato a sud del centro abitato. La frana ha dunque riattivato un fenomeno di instabilità noto e in evoluzione, non un evento imprevisto.
+
+  ## 2026-06-30 — Q3 (parte 2): overlay frana × PAI DISSESTI
+
+- Script 13_overlay_dissesti.py: intersezione frana × dissesti già mappati.
+- 72,8% della frana (18,06 ha) interseca dissesti inventariati — coerente
+  col 73% del PAI pericolosità (conferma indipendente).
+- Stato di attività (COD_ATT): TUTTI = 1 (ATTIVO), 18,06 ha. Dato chiave,
+  confermato da fonti normative: i dissesti attivi determinano la classe P4
+  del PAI → coerente con il 50% di P4 trovato nell'overlay pericolosità.
+- Tipi (COD_TIP): 5 = 12,27 ha (corpo principale), 11 = 5,67 ha, 1 = 0,12 ha.
+  ATTENZIONE: legenda numerica COD_TIP da confermare con le Norme Tecniche di
+  Attuazione del PAI (allegato "Tipologie di dissesti") in fase di report.
+  Ipotesi IFFI standard (5≈colamento, 1≈crollo) NON ancora verificata.
+- DATA_EVENT vuoto (NaT); eventuali date in DATA_DPR/DATA_DSG (decreti).
+- Conclusione: la frana 2026 ha riattivato dissesti già
