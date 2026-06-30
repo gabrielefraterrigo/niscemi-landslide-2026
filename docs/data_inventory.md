@@ -43,7 +43,7 @@ EPSG:32633 in Phase 2.
 | landslide_ndvi_final (in landslide_ndvi_final.gpkg) | dndvi.tif | scripts/09_landslide_polygon.py (threshold −0.2 + closing + size filter) then manual cleanup of agricultural false positives in QGIS | 32633 |
 | zonal_landslide.txt | slope_deg.tif + landslide_ndvi_final.gpkg | scripts/11_zonal_landslide.py (zonal slope stats on landslide polygon) | — |
 | landslide_pai.gpkg | landslide_ndvi_final + PAI PERICOLOSITA | scripts/12_overlay_pai.py (intersection, area by hazard class) | 32633 |
-
+| landslide_dissesti.gpkg | landslide_ndvi_final + PAI DISSESTI | scripts/13_overlay_dissesti.py (intersection with mapped instability) | 32633 |
 
 ## Administrative boundaries
 | Data | Level | Year | Source | CRS | Downloaded |
