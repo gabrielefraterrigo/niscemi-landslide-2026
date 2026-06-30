@@ -145,3 +145,20 @@
   Ipotesi IFFI standard (5≈colamento, 1≈crollo) NON ancora verificata.
 - DATA_EVENT vuoto (NaT); eventuali date in DATA_DPR/DATA_DSG (decreti).
 - Conclusione: la frana 2026 ha riattivato dissesti già
+
+
+## 2026-06-30 — Q3 (parte 3): edifici coinvolti e in zona a rischio
+
+- Script 14_buildings.py: edifici OSM (4220, da QuickOSM) vs frana e zone PAI.
+- Criterio: intersezione (edificio coinvolto se tocca l'area).
+- Edifici intersecanti l'area franata: 13 (impatto diretto rilevato da ottico;
+  sottostima del danno urbano reale per i limiti dell'ottico sul costruito).
+- Edifici in zone PAI P3+P4 (pericolosità elevata/molto elevata): 104.
+- BUG risolto: campo PERICOLO di PERICOLOSITA.shp è TESTO ('4', non 4) →
+  il filtro isin([3,4]) numerico dava 0; corretto in isin(["3","4"]).
+  Lezione: verificare sempre dtype/valori di un campo prima di filtrarlo;
+  uno zero incoerente con dati noti è segnale di bug, non risultato.
+- Limite: copertura edifici OSM buona ma non garantita esaustiva (da dichiarare).
+- Q3 COMPLETA.
+
+Q3 — Contesto di rischio. L'area collassata nel 2026 era in larga parte già nota come pericolosa: il 73% ricadeva in zone classificate dal PAI (50% in classe massima P4), e una quota equivalente coincideva con dissesti già inventariati, tutti in stato "attivo". Il fenomeno ha quindi riattivato un'instabilità nota e cartografata, non un evento imprevisto. Sul costruito: l'area franata rilevata da satellite interseca 13 edifici (sottostima del danno urbano, per i limiti dell'ottico sul tessuto edificato), mentre 104 edifici sorgono complessivamente nelle zone PAI a pericolosità elevata/molto elevata (P3-P4) dell'area — una misura dell'esposizione al rischio già mappato.
