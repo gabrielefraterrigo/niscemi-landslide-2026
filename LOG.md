@@ -162,3 +162,24 @@
 - Q3 COMPLETA.
 
 Q3 — Contesto di rischio. L'area collassata nel 2026 era in larga parte già nota come pericolosa: il 73% ricadeva in zone classificate dal PAI (50% in classe massima P4), e una quota equivalente coincideva con dissesti già inventariati, tutti in stato "attivo". Il fenomeno ha quindi riattivato un'instabilità nota e cartografata, non un evento imprevisto. Sul costruito: l'area franata rilevata da satellite interseca 13 edifici (sottostima del danno urbano, per i limiti dell'ottico sul tessuto edificato), mentre 104 edifici sorgono complessivamente nelle zone PAI a pericolosità elevata/molto elevata (P3-P4) dell'area — una misura dell'esposizione al rischio già mappato.
+
+
+## 2026-07-01 — Fase 7: ordinato processing coerenza SAR (HyP3)
+
+- Obiettivo: rilevare il settore urbano colpito, dove l'ottico (NDVI/BSI)
+  è cieco (edificio→macerie = poca variazione spettrale).
+- Metodo: coherence change detection Sentinel-1 (non backscatter come nel
+  progetto flood precedente — qui la COERENZA interferometrica, che misura
+  la stabilità della fase tra due passaggi; crolla dove la struttura cambia,
+  a prescindere dalla vegetazione).
+- Processing via ASF HyP3 (InSAR GAMMA on-demand, cloud) invece di SNAP
+  desktop — evita l'attrito del processing interferometrico manuale.
+- Coppia SLC (IW, Path 44):
+  PRE  = S1A 14/01/2026 (11 gg prima del collasso)
+  POST = S1C 01/02/2026 (baseline perp. 77 m, ~18 gg dalla pre)
+- Scelta post 01/02 (non 26/01 immediato): per catturare il danno urbano
+  CONSOLIDATO nei giorni post-collasso; 18 gg restano un intervallo breve e
+  la decorrelazione temporale extra penalizza solo la vegetazione (non gli
+  edifici, che restano coerenti a lungo → il target urbano non è degradato).
+- Coppia cross-platform S1A×S1C (interferometricamente compatibili).
+- Output richiesto: coherence (default) + DEM + displacement maps. Looks 10X2 (~40 m).
