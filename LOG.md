@@ -183,3 +183,19 @@ Q3 — Contesto di rischio. L'area collassata nel 2026 era in larga parte già n
   edifici, che restano coerenti a lungo → il target urbano non è degradato).
 - Coppia cross-platform S1A×S1C (interferometricamente compatibili).
 - Output richiesto: coherence (default) + DEM + displacement maps. Looks 10X2 (~40 m).
+
+
+## 2026-07-01 — Fase 7: coerenza SAR quantitativa (chiusura)
+
+- Script 15_coherence_zonal.py: coerenza media per zona (riproiez. 4326→32633).
+- Frana 0,305 | Urbano 0,787 | Campagna 0,645.
+- Frana = coerenza MINIMA in assoluto (sotto anche la campagna) → il crollo
+  di coerenza è cambiamento strutturale SPECIFICO del versante, non
+  decorrelazione generica. Validazione multi-sensore: SAR conferma la frana
+  ottica sul versante.
+- Urbano coerenza alta (0,79) → edifici in gran parte intatti, coerente coi
+  dati ufficiali (4 crolli, 137 inagibili). Nessun grande settore urbano raso.
+- Campagna 0,645 (più alta del previsto): suolo nudo/arato invernale conserva
+  coerenza; la vegetazione rada non decorrela come atteso. Rafforza il segnale
+  frana (che resta il minimo assoluto).
+- Fase 7 COMPLETA. Limite: risoluzione 40m non isola crolli urbani singoli.

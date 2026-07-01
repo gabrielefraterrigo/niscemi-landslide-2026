@@ -47,6 +47,8 @@ EPSG:32633 in Phase 2.
 | landslide_dissesti.gpkg | landslide_ndvi_final + PAI DISSESTI | scripts/13_overlay_dissesti.py (intersection with mapped instability) | 32633 |
 | OSM buildings (Niscemi area) | OpenStreetMap via QuickOSM (key=building) | EPSG:4326→32633 | ODbL | 2026-06-30 |
 | buildings_in_landslide.gpkg | osm_buildings + landslide_ndvi_final | scripts/14_buildings.py (buildings intersecting landslide & P3/P4 zones) | 32633 |
+| SAR coherence (S1 14/01→01/02) | ASF HyP3 InSAR GAMMA, coppia Path 44 | 4326→32633 | — | 2026-07-01 |
+| corr_32633.tif | *_corr.tif reproiettato | scripts/15_coherence_zonal.py | 32633 |
 
 ## Administrative boundaries
 | Data | Level | Year | Source | CRS | Downloaded |
